@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brendi's Bachelorette | Dublin Getaway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --periwinkle: #7684c3; /* Matches Brendi's logo script */
+            --periwinkle-light: #f0f2fa;
+            --gold: #d4af37;
+            --gold-light: #f9f6ec;
+            --white: #ffffff;
+            --text-dark: #333a56;
+            --text-muted: #6b728e;
+            --border-fine: 1px solid rgba(210, 175, 55, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            padding-bottom: 80px;
+        }
+
+        /* Fine Gold Accent Line Elements */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 200px;
+        }
+        .gold-divider::before, .gold-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        .gold-divider span {
+            color: var(--gold);
+            font-size: 12px;
+            margin: 0 10px;
+        }
+
+        /* Header & Logo Showcase */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            background: linear-gradient(to bottom, var(--gold-light), var(--white));
+        }
+
+        .logo-container {
+            max-width: 280px;
+            margin: 0 auto 20px auto;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--periwinkle);
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Fine-lined Sections */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--periwinkle);
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .section-block {
+            margin-bottom: 60px;
+        }
+
+        /* Logistics Grid */
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .luxury-card {
+            background-color: var(--white);
+            border: var(--border-fine);
+            border-radius: 4px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(118, 132, 195, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .luxury-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .luxury-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .luxury-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Elegant Button styling */
+        .btn-luxury {
+            display: inline-block;
+            background-color: var(--periwinkle);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+            margin-top: 15px;
+            border: 1px solid var(--periwinkle);
+            transition: all 0.3s ease;
+        }
+
+        .btn-luxury:hover {
+            background-color: transparent;
+            color: var(--periwinkle);
+        }
+
+        /* Property Gallery Styling */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 240px;
+            border-radius: 2px;
+            overflow: hidden;
+            border: var(--border-fine);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Experience Timeline Layout */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .timeline-event {
+            display: flex;
+            background-color: var(--white);
+            border: var(--border-fine);
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(118, 132, 195, 0.03);
+        }
+
+        .event-img {
+            width: 260px;
+            min-width: 260px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .event-details {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: var(--periwinkle);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .event-details p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Responsive UI Adjustments */
+        @media (max-width: 768px) {
+            .timeline-event {
+                flex-direction: column;
+            }
+            .event-img {
+                width: 100%;
+                height: 200px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Brendi's Bachelorette Logo">
+        </div>
+        <h1>Brendi's Bachelorette</h1>
+        <p>Sun, Sand &amp; The Start of Forever — Dublin Edition</p>
+        <div class="gold-divider"><span>✦</span></div>
+    </header>
+
+    <div class="container">
+
+        <section class="section-block">
+            <h2>The Logistics</h2>
+            <div class="logistics-grid">
+                <div class="luxury-card">
+                    <h3>Travel &amp; Transit</h3>
+                    <div class="gold-divider"><span>✦</span></div>
+                    <p><strong>Flight Estimate:</strong> $634 non-stop</p>
+                    <p><strong>Ground:</strong> Freenow rideshares will be utilized for group movement throughout the city.</p>
+                </div>
+                <div class="luxury-card">
+                    <h3>Accommodations</h3>
+                    <div class="gold-divider"><span>✦</span></div>
+                    <p><strong>Costing:</strong> $632.14 per person</p>
+                    <p>Centrally nestled inside historic Dublin, steps away from premium fine dining and night celebrations.</p>
+                    <a href="https://www.airbnb.com/rooms/22496407?adults=8&check_in=2026-09-18&check_out=2026-09-22&infants=1&search_mode=regular_search&photo_id=608402375&source_impression_id=p3_1781067248_P37eif0YLGVsAlRq&previous_page_section_name=1000&federated_search_id=a1f137d5-94e4-4f79-8d32-1d7bcce49578" target="_blank" class="btn-luxury">View Airbnb Listing</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2>Our Dublin Base</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="1000046315.jpg" alt="Rental Main"></div>
+                <div class="gallery-item"><img src="1000046321.jpg" alt="Bedroom 1"></div>
+                <div class="gallery-item"><img src="1000046309.jpg" alt="Lounge Area"></div>
+                <div class="gallery-item"><img src="1000046312.jpg" alt="Kitchen Space"></div>
+                <div class="gallery-item"><img src="1000046324.jpg" alt="Bedroom 2"></div>
+                <div class="gallery-item"><img src="1000046327.jpg" alt="Bedroom 3"></div>
+                <div class="gallery-item"><img src="1000046330.jpg" alt="Bedroom Suite"></div>
+                <div class="gallery-item"><img src="1000046333.jpg" alt="Suite Fireplace"></div>
+                <div class="gallery-item"><img src="1000046336.jpg" alt="Cozy Quarters"></div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2>The Weekend Blueprint</h2>
+            <div class="timeline">
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Historic Promenade</h3>
+                        <p>Explore O'Connell Street and Grafton Street historic quarters. Stroll across elegant historic architectural boulevards, boutique shops, and prominent landmarks highlighting central Dublin's timeless character.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Traditional Pub Social</h3>
+                        <p>Immerse the group in classic local establishments, legendary live acoustic folk music sessions, and the lively authentic night social rhythm native to Dublin's cultural heart.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>The Guinness Storehouse Experience</h3>
+                        <p>Tour the world-renowned fermentation hub at St. James's Gate Brewery. Discover the structural glass atrium modeling massive dimensions, explore heritage advertisement art, and raise a toast to Brendi from the Gravity Bar overlooking panoramic city skylines.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Irish Whiskey Tasting</h3>
+                        <p>A refined sensory journey showcasing legendary distilling craft inside the historical Jameson Distillery Bow St. complex or the curated exhibitions at the Irish Whiskey Museum.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>The Irish Museum of Modern Art</h3>
+                        <p>Wander through elite contemporary collections situated beautifully within historical Kilmainham. Uncover modern installations inside architectural monuments rich with heritage.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1584813531061-e04db14902b7?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Dublin Castle Exploration</h3>
+                        <p>Inspect the monumental historic heart of old Dublin. Admire sweeping views encompassing majestic state parameters, ancient structural towers, and lush signature landscaping layouts.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Dublin Bay Coastal Escape</h3>
+                        <p>Breathe in fresh coastal air along sweeping waterfront scenes. Relax and unwind away from urban tracks via coastal overlooks, beautiful harbor horizons, and fresh maritime elements.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
