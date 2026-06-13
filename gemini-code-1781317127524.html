@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dublin Bachelorette Weekend</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-gold: #d4af37;
+            --text-light: #f5f5f5;
+            --text-muted: #aaa;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(18,18,18,1)), url('https://images.unsplash.com/photo-1549918830-116704c7c09d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            border-bottom: 1px solid var(--border-gold);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Section Layout */
+        h2 {
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 8px;
+        }
+
+        .section-margin {
+            margin-bottom: 50px;
+        }
+
+        /* Logistics Grid */
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        /* Rental Accommodations Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            height: 220px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Itinerary Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-event {
+            display: flex;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .event-img {
+            width: 250px;
+            min-width: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .event-details {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .event-details h3 {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .event-details p {
+            color: var(--text-muted);
+        }
+
+        /* Responsive Layout fixes */
+        @media (max-width: 768px) {
+            .timeline-event {
+                flex-direction: column;
+            }
+            .event-img {
+                width: 100%;
+                height: 180px;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dublin Celebration</h1>
+        <p>The Ultimate Bachelorette Getaway in Ireland</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Trip Logistics Section -->
+        <section class="section-margin">
+            <h2>Trip Details &amp; Logistics</h2>
+            <div class="logistics-grid">
+                <div class="card">
+                    <h3>Travel &amp; Transport</h3>
+                    <p><strong>Flight Estimate:</strong> $634 non-stop</p>
+                    <p><strong>Ground Transit:</strong> Freenow rideshares utilized around the city.</p>
+                </div>
+                <div class="card">
+                    <h3>Accommodations</h3>
+                    <p><strong>Costing:</strong> $632.14 per person</p>
+                    <p>We are staying centrally located inside historic Dublin, close to major nightlife districts and venues.</p>
+                    <a href="https://www.airbnb.com/rooms/22496407?adults=8&check_in=2026-09-18&check_out=2026-09-22&infants=1&search_mode=regular_search&photo_id=608402375&source_impression_id=p3_1781067248_P37eif0YLGVsAlRq&previous_page_section_name=1000&federated_search_id=a1f137d5-94e4-4f79-8d32-1d7bcce49578" target="_blank" class="btn">View Airbnb Listing</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rental Showcase Section (Referencing local assets) -->
+        <section class="section-margin">
+            <h2>Rental Location Preview</h2>
+            <p style="margin-bottom: 15px; color: var(--text-muted);">Sneak peek interior galleries of our Dublin home base:</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="1000046315.jpg" alt="Rental Space 1000046315.jpg">
+                    <div class="img-label">1000046315.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046321.jpg" alt="Rental Space 1000046321.jpg">
+                    <div class="img-label">1000046321.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046309.jpg" alt="Rental Space 1000046309.jpg">
+                    <div class="img-label">1000046309.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046312.jpg" alt="Rental Space 1000046312.jpg">
+                    <div class="img-label">1000046312.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046324.jpg" alt="Rental Space 1000046324.jpg">
+                    <div class="img-label">1000046324.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046327.jpg" alt="Rental Space 1000046327.jpg">
+                    <div class="img-label">1000046327.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046330.jpg" alt="Rental Space 1000046330.jpg">
+                    <div class="img-label">1000046330.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046333.jpg" alt="Rental Space 1000046333.jpg">
+                    <div class="img-label">1000046333.jpg</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1000046336.jpg" alt="Rental Space 1000046336.jpg">
+                    <div class="img-label">1000046336.jpg</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Experience Sections -->
+        <section class="section-margin">
+            <h2>The Experience Itinerary</h2>
+            <div class="timeline">
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Historic Walking Tour</h3>
+                        <p>Explore O'Connell Street and Grafton Street historic districts. Stroll across wide historic architectural boulevards, shopping centers, and prominent dynamic landmarks highlighting core elements of Central Dublin.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Dublin Pub Crawl</h3>
+                        <p>Immerse the group in traditional nightlife spots, legendary local watering holes, live folk music, and vibrant night social dynamics native to iconic social quarters.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>The Guinness Storehouse</h3>
+                        <p>Tour the world-renowned fermentation hub built at St. James's Gate Brewery. Discover the structural glass atrium modeling massive dimensions, step through heritage advertisement histories, and cap off premium city vistas at the Gravity Bar.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Irish Whiskey Tour</h3>
+                        <p>A classic sensory tasting trek showcasing legendary distillers such as The Jameson Distillery Bow St. complex or the interactive exhibitions inside the official Irish Whiskey Museum.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>The Irish Museum of Modern Art (IMMA)</h3>
+                        <p>Wander through contemporary national institutions situated globally within historical Kilmainham. Uncover elite modern collections inside architectural monuments modeled structurally off historic structures.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1584813531061-e04db14902b7?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Dublin Castle Exploration</h3>
+                        <p>Inspect the monumental administrative heart of old Dublin. Admire sweeping views encompassing majestic state parameters, ancient structural towers, and lush signature landscaping layouts.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="event-details">
+                        <h3>Dublin Bay Excursion</h3>
+                        <p>Breathe in fresh coastal air along sweeping waterfront scenes. Relax and unwind away from urban tracks via coastal overlooks, beautiful harbor horizons, and fresh maritime elements.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
